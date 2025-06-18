@@ -29,24 +29,34 @@
   </style>
 </head>
 <body class="bg-[#fffaf6] text-[#2b2b2b]">
-  <header class="flex justify-between items-center bg-[#cde5e3] px-6 py-4 relative z-10">
-    <img src="logo.PNG" alt="SafeHorizon Logo" class="h-[90px]">
-    <blockquote class="text-2xl text-[#333] italic font-[Playfair_Display] font-semibold tracking-wide drop-shadow-md text-center max-w-4xl mx-auto mt-4 px-4 hidden md:block">
-      “Moving with Mercy, Guided by Trust”
-    </blockquote>
+  <header class="bg-[#cde5e3] px-6 py-4 relative z-10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <img src="logo.PNG" alt="SafeHorizon Logo" class="h-[90px] mr-4"> <blockquote class="text-xl md:text-2xl text-[#333] italic font-[Playfair_Display] font-semibold tracking-wide drop-shadow-md text-center flex-grow mx-4">
+        “Moving with Mercy, Guided by Trust”
+      </blockquote>
 
-    <button id="menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
-      <span class="hamburger-line line-1"></span>
-      <span class="hamburger-line line-2"></span>
-      <span class="hamburger-line line-3"></span>
-    </button>
+      <button id="menu-button" class="md:hidden p-2 rounded-md focus:outline-none ml-auto">
+        <span class="hamburger-line line-1"></span>
+        <span class="hamburger-line line-2"></span>
+        <span class="hamburger-line line-3"></span>
+      </button>
 
-    <nav id="main-nav" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-[#2b2b2b] font-medium absolute md:static top-full left-0 w-full bg-[#cde5e3] md:bg-transparent p-4 md:p-0 shadow-md md:shadow-none">
-      <a href="#about" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">About Us</a>
-      <a href="#services" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Services</a>
-      <a href="#quote" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Book a Ride</a>
-      <a href="#hiring" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Join Our Team</a>
-    </nav>
+      <nav id="main-nav" class="hidden md:flex flex-row space-x-6 text-[#2b2b2b] font-medium">
+        <a href="#about" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center whitespace-nowrap">About Us</a>
+        <a href="#services" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center whitespace-nowrap">Services</a>
+        <a href="#quote" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center whitespace-nowrap">Book a Ride</a>
+        <a href="#hiring" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center whitespace-nowrap">Join Our Team</a>
+      </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#cde5e3] shadow-md py-4 px-6 md:hidden">
+        <nav class="flex flex-col space-y-4 text-[#2b2b2b] font-medium">
+            <a href="#about" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">About Us</a>
+            <a href="#services" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Services</a>
+            <a href="#quote" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Book a Ride</a>
+            <a href="#hiring" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Join Our Team</a>
+        </nav>
+    </div>
   </header>
 
   <section class="bg-gradient-to-br from-[#fdf6ee] to-[#f3f3f3] px-6 py-12">
@@ -132,28 +142,21 @@
 
   <script>
     const menuButton = document.getElementById('menu-button');
-    const mainNav = document.getElementById('main-nav');
-    const blockquote = document.querySelector('blockquote'); // Select the blockquote
+    const mainNav = document.getElementById('main-nav'); // This is the desktop nav
+    const mobileMenu = document.getElementById('mobile-menu'); // This is the mobile nav container
+    const blockquote = document.querySelector('blockquote');
 
     menuButton.addEventListener('click', () => {
-      mainNav.classList.toggle('hidden'); // Toggle hidden class for the nav
-      menuButton.classList.toggle('hamburger-open'); // Toggle class for icon animation
-
-      // Hide blockquote when menu is open to prevent overlap
-      if (!mainNav.classList.contains('hidden')) {
-        blockquote.classList.add('hidden');
-      } else {
-        blockquote.classList.remove('hidden'); // Show it again when menu closes
-      }
+      mobileMenu.classList.toggle('hidden'); // Toggle visibility of the mobile menu container
+      menuButton.classList.toggle('hamburger-open'); // Animate hamburger icon
     });
 
-    // Close menu when a link is clicked (for smoother navigation)
-    document.querySelectorAll('#main-nav a').forEach(link => {
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
-        if (!mainNav.classList.contains('hidden')) { // Only if menu is open
-          mainNav.classList.add('hidden');
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
           menuButton.classList.remove('hamburger-open');
-          blockquote.classList.remove('hidden'); // Ensure blockquote reappears
         }
       });
     });
@@ -161,17 +164,8 @@
     // Handle window resize for larger screens
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
-        mainNav.classList.remove('hidden', 'flex-col', 'space-y-2');
-        mainNav.classList.add('flex-row', 'space-x-6');
-        menuButton.classList.remove('hamburger-open');
-        blockquote.classList.remove('hidden'); // Always show blockquote on desktop
-      } else {
-        // Ensure nav remains hidden on small screens unless toggled
-        if (!menuButton.classList.contains('hamburger-open')) {
-             mainNav.classList.add('hidden');
-        }
-        mainNav.classList.remove('flex-row', 'space-x-6');
-        mainNav.classList.add('flex-col', 'space-y-2');
+        mobileMenu.classList.add('hidden'); // Ensure mobile menu is hidden on desktop
+        menuButton.classList.remove('hamburger-open'); // Reset hamburger icon
       }
     });
   </script>
