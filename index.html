@@ -7,27 +7,57 @@
   <meta name="description" content="SafeHorizon Transport LLC provides reliable and compassionate wheelchair-accessible transportation services in Southern California for medical appointments, community events, and more. Get a free quote today!">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-  </head>
+  <style>
+    /* Custom styles for hamburger icon */
+    .hamburger-line {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background-color: #2b2b2b; /* Match your text color */
+      margin: 4px 0;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger-open .line-1 {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger-open .line-2 {
+      opacity: 0;
+    }
+    .hamburger-open .line-3 {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  </style>
+</head>
 <body class="bg-[#fffaf6] text-[#2b2b2b]">
-  <header class="bg-[#cde5e3] px-4 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between gap-2"> <img src="logo.PNG" alt="SafeHorizon Logo" class="h-[60px] md:h-[90px]"> <blockquote class="text-base md:text-2xl text-[#333] italic font-[Playfair_Display] font-semibold tracking-wide drop-shadow-md text-center flex-grow mx-auto max-w-2xl md:max-w-4xl px-2 md:px-4">
-        “Moving with Mercy, Guided by Trust”
-      </blockquote>
+  <header class="flex justify-between items-center bg-[#cde5e3] px-6 py-4 relative z-10">
+    <img src="logo.PNG" alt="SafeHorizon Logo" class="h-[90px]">
+    <blockquote class="text-2xl text-[#333] italic font-[Playfair_Display] font-semibold tracking-wide drop-shadow-md text-center max-w-4xl mx-auto mt-4 px-4 hidden md:block">
+      “Moving with Mercy, Guided by Trust”
+    </blockquote>
 
-      <nav class="flex flex-wrap justify-end gap-1 text-[#2b2b2b] font-medium w-auto">
-        <a href="#about" class="bg-[#e27865] text-white px-2 py-1 rounded-md text-xs whitespace-nowrap">About Us</a>
-        <a href="#services" class="bg-[#e27865] text-white px-2 py-1 rounded-md text-xs whitespace-nowrap">Services</a>
-        <a href="#quote" class="bg-[#e27865] text-white px-2 py-1 rounded-md text-xs whitespace-nowrap">Book a Ride</a>
-        <a href="#hiring" class="bg-[#e27865] text-white px-2 py-1 rounded-md text-xs whitespace-nowrap">Join Our Team</a>
-      </nav>
-    </div>
+    <button id="menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
+      <span class="hamburger-line line-1"></span>
+      <span class="hamburger-line line-2"></span>
+      <span class="hamburger-line line-3"></span>
+    </button>
+
+    <nav id="main-nav" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-[#2b2b2b] font-medium absolute md:static top-full left-0 w-full bg-[#cde5e3] md:bg-transparent p-4 md:p-0 shadow-md md:shadow-none">
+      <a href="#about" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">About Us</a>
+      <a href="#services" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Services</a>
+      <a href="#quote" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Book a Ride</a>
+      <a href="#hiring" class="bg-[#e27865] text-white px-4 py-2 rounded-md text-center">Join Our Team</a>
+    </nav>
   </header>
 
-  <section class="bg-gradient-to-br from-[#fdf6ee] to-[#f3f3f3] px-6 py-8"> <div class="grid grid-cols-3 gap-2 max-w-6xl mx-auto"> <img src="hero-image.png" alt="Accessible van 1" class="object-cover w-full h-[150px] rounded-lg shadow-lg"> <img src="hero-image2.jpeg" alt="Accessible van 2" class="object-cover w-full h-[150px] rounded-lg shadow-lg">
-      <img src="hero-image3.jpeg" alt="Accessible van 3" class="object-cover w-full h-[150px] rounded-lg shadow-lg">
+  <section class="bg-gradient-to-br from-[#fdf6ee] to-[#f3f3f3] px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <img src="hero-image.png" alt="Accessible van 1" class="object-cover w-full h-[250px] rounded-lg shadow-lg">
+      <img src="hero-image2.jpeg" alt="Accessible van 2" class="object-cover w-full h-[250px] rounded-lg shadow-lg">
+      <img src="hero-image3.jpeg" alt="Accessible van 3" class="object-cover w-full h-[250px] rounded-lg shadow-lg">
     </div>
 
-    <p class="text-center text-sm font-bold mt-4 px-4"> Providing safe and accessible rides for people with mobility challenges and special needs.
+    <p class="text-center text-lg font-bold mt-8 px-4">
+      Providing safe and accessible rides for people with mobility challenges and special needs.
     </p>
   </section>
 
@@ -62,36 +92,36 @@
     </div>
   </section>
 
-  <div class="bg-[#fdf6ee] py-12 px-6 md:px-16">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:space-x-8">
-      <section id="quote" class="flex-1 text-center mb-12 md:mb-0">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#b2523b] mb-6">Get a Quote for Your Ride</h2>
-        <p class="text-lg leading-relaxed mb-8">
-          Need transportation? Fill out our quick form to get a personalized quote for your ride. We're here to help you get where you need to go safely and comfortably.
-        </p>
-        <a
-          href="https://forms.gle/EX3E35M2BcW2x8ro9"
-          target="_blank"
-          class="inline-block bg-[#e27865] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#d16655] transition">
-          Submit Request
-        </a>
-      </section>
-
-      <section id="hiring" class="flex-1 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#b2523b] mb-6">Join Our Team</h2>
-        <p class="text-lg leading-relaxed mb-8">
-          SafeHorizon Transport LLC is always looking for compassionate, reliable, and professional individuals to join our growing team. We are currently hiring drivers and other essential support staff to help us deliver exceptional transportation services to our community.
-          If you’re passionate about helping others and want to be part of a mission-driven organization that values dignity, trust, and care, we’d love to hear from you.
-        </p>
-        <a
-          href="https://forms.gle/AANWjP8cbidZ8nH86"
-          target="_blank"
-          class="inline-block bg-[#e27865] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#d16655] transition">
-          Submit Your Resume
-        </a>
-      </section>
+  <section id="quote" class="bg-[#fdf6ee] py-12 px-6 md:px-16">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#b2523b] mb-6">Get a Quote for Your Ride</h2>
+      <p class="text-lg leading-relaxed mb-8">
+        Need transportation? Fill out our quick form to get a personalized quote for your ride. We're here to help you get where you need to go safely and comfortably.
+      </p>
+      <a
+        href="https://forms.gle/EX3E35M2BcW2x8ro9"
+        target="_blank"
+        class="inline-block bg-[#e27865] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#d16655] transition">
+        Submit Request
+      </a>
     </div>
-  </div>
+  </section>
+
+  <section id="hiring" class="bg-[#fdf6ee] py-12 px-6 md:px-16">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#b2523b] mb-6">Join Our Team</h2>
+      <p class="text-lg leading-relaxed mb-8">
+        SafeHorizon Transport LLC is always looking for compassionate, reliable, and professional individuals to join our growing team. We are currently hiring drivers and other essential support staff to help us deliver exceptional transportation services to our community.
+        If you’re passionate about helping others and want to be part of a mission-driven organization that values dignity, trust, and care, we’d love to hear from you.
+      </p>
+      <a
+        href="https://forms.gle/AANWjP8cbidZ8nH86"
+        target="_blank"
+        class="inline-block bg-[#e27865] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#d16655] transition">
+        Submit Your Resume
+      </a>
+    </div>
+  </section>
 
   <footer id="contact" class="bg-[#294e4b] text-white text-center py-8 px-4">
     <h3 class="text-2xl font-semibold mb-2">Contact Us</h3>
@@ -100,5 +130,50 @@
     <p class="mt-4 text-sm">&copy; 2025 SafeHorizon Transport LLC. All rights reserved.</p>
   </footer>
 
-  </body>
+  <script>
+    const menuButton = document.getElementById('menu-button');
+    const mainNav = document.getElementById('main-nav');
+    const blockquote = document.querySelector('blockquote'); // Select the blockquote
+
+    menuButton.addEventListener('click', () => {
+      mainNav.classList.toggle('hidden'); // Toggle hidden class for the nav
+      menuButton.classList.toggle('hamburger-open'); // Toggle class for icon animation
+
+      // Hide blockquote when menu is open to prevent overlap
+      if (!mainNav.classList.contains('hidden')) {
+        blockquote.classList.add('hidden');
+      } else {
+        blockquote.classList.remove('hidden'); // Show it again when menu closes
+      }
+    });
+
+    // Close menu when a link is clicked (for smoother navigation)
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (!mainNav.classList.contains('hidden')) { // Only if menu is open
+          mainNav.classList.add('hidden');
+          menuButton.classList.remove('hamburger-open');
+          blockquote.classList.remove('hidden'); // Ensure blockquote reappears
+        }
+      });
+    });
+
+    // Handle window resize for larger screens
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+        mainNav.classList.remove('hidden', 'flex-col', 'space-y-2');
+        mainNav.classList.add('flex-row', 'space-x-6');
+        menuButton.classList.remove('hamburger-open');
+        blockquote.classList.remove('hidden'); // Always show blockquote on desktop
+      } else {
+        // Ensure nav remains hidden on small screens unless toggled
+        if (!menuButton.classList.contains('hamburger-open')) {
+             mainNav.classList.add('hidden');
+        }
+        mainNav.classList.remove('flex-row', 'space-x-6');
+        mainNav.classList.add('flex-col', 'space-y-2');
+      }
+    });
+  </script>
+</body>
 </html>
